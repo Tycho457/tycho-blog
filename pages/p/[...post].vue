@@ -14,8 +14,8 @@ const path = post.join('/')
         <doc-render :article="doc" />
         <doc-toc :toc="doc.body.toc" />
         <Giscus
-          repo="chansee97/nuxt-blog" repo-id="R_kgDOJZM7Qg" category="comments"
-          category-id="DIC_kwDOJZM7Qs4CW1GZ" mapping="title" term="Welcome to my blog!" reactions-enabled="1"
+          repo="tycho457/nuxt3-blog" repo-id="R_kgDOKGidhw" category="General"
+          category-id="DIC_kwDOKGidh84CYkoQ" mapping="title" term="Welcome to my blog!" reactions-enabled="1"
           emit-metadata="1" input-position="top" theme="light_tritanopia" lang="zh-CN" loading="lazy"
         />
       </template>
