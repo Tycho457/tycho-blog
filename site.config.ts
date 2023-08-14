@@ -27,7 +27,7 @@ export const navLinks = [
     icon: 'i-icon-park-outline-align-text-right-one',
   },
   // {
-  //   title: 'Projects',
+  //   title: '项目',
   //   path: '/projects',
   //   icon: 'i-icon-park-outline-blocks-and-arrows',
   // },
