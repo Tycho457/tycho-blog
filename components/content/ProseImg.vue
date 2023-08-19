@@ -32,8 +32,8 @@ const refinedSrc = computed(() => {
 <template>
   <figure>
     <img :src="refinedSrc" :alt="alt" :width="width" :height="height" loading="lazy">
-    <figcaption>
+    <!-- <figcaption>
       {{ alt }}
-    </figcaption>
+    </figcaption> -->
   </figure>
 </template>
