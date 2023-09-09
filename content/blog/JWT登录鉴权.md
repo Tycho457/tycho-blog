@@ -4,7 +4,7 @@ date: 2023-07-20 14:18:49
 url: 
 tags:
   - 计算机网络
-title: HTTP VS HTTPS
+title: JSON Web Token
 ---
 # 写在前面
 > JWT是一种基于JSON（JavaScript Object Notation）的轻量级认证和授权协议，它包含了一些声明（claims）和签名（signature），用于验证发送者身份和保护传输的信息。
