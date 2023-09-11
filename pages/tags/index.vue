@@ -11,7 +11,6 @@ const tagsContent = contentQuery
     for (const tag of post.tags) {
       if (counts[tag])
         counts[tag]++
-
       else
         counts[tag] = 1
     }

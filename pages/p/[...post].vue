@@ -22,13 +22,13 @@ const path = post.join('/')
 
       <template #empty>
         <h1 class="text-center">
-          Document is empty😅
+          Document is empty!
         </h1>
       </template>
 
       <template #not-found>
         <h1 class="text-center">
-          Not Found Any Document😗
+          Not Found Any Document!
         </h1>
       </template>
     </ContentDoc>

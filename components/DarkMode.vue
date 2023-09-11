@@ -1,14 +1,14 @@
 <script setup lang="ts">
 let isDark: boolean
 
-// 切换主题模式
+// 核心切换方法
 function toggleDark() {
   const root = document.documentElement
   isDark = root.classList.contains('dark')
   root.classList.remove(isDark ? 'dark' : '-')
   root.classList.add(isDark ? '-' : 'dark')
 }
-// 处理视图过度切换
+// 采用过渡效果切换
 function toggleViewTransition(event: MouseEvent) {
   const x = event.clientX
   const y = event.clientY
@@ -41,9 +41,10 @@ function toggleViewTransition(event: MouseEvent) {
     )
   })
 }
-// 切换主题
+// 环境判断
 function toogleTheme(event: MouseEvent) {
   // @ts-expect-error: Transition API
+  // 检测浏览器是否支持页面过渡效果，以及用户是否启用了减少动画的偏好
   const isSupport = document.startViewTransition
     && !window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
