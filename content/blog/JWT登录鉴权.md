@@ -26,10 +26,93 @@ title: JSON Web Token
     - {  "sub": "1234567890",  "name": "John Doe",  "admin": true}
 - Signature：由前两部分加密组成，主要用来验证发生请求者身份
 # JWT实现
-（1）后端：express-jwt、jsonwebtoken
+（1）后端：express-jwt、jsonwebtoken（两个npm包）
 
-（2）前端：axios拦截器、localstorage存储token
+处理用户登录时，生成token并把token放回给前端
+
+```js
+// /routes/user.js
+if (user !== null) {
+  let token = jwt.sign(tokenObj, secretKey, {
+        expiresIn : 60 * 60 * 24 
+  });
+  res.json({
+        success: true,
+        message: 'success',
+        token: token
+  });
+} 
+```
+
+设置拦截token的中间件，用于token的验证和错误信息的返回
+
+```js
+const expressJwt = require("express-jwt");
+const { secretKey } = require('../constant/constant');
+// express-jwt中间件自动完成了token的验证以及错误处理，unless中存放的不需要检验token的api。
+const jwtAuth = expressJwt({secret: secretKey}).unless({path: ["/api/user/login", "/api/user/register"]}); 
+
+module.exports = jwtAuth;
+```
+
+```js
+const crypto = require('crypto');
+
+module.exports = {
+  MD5_SUFFIX: 'luffyZhou我是一个固定长度的盐值',
+  md5: (pwd) => {
+    let md5 = crypto.createHash('md5');
+    return md5.update(pwd).digest('hex');
+  },
+  secretKey: 'luffy_1993711_26_jwttoken'
+};
+```
+
+（2）前端：axios拦截器、token持久化存储（这里采用localstorage）
+
+前端需要做的主要有两处：
+
+1、拿到toekn并用localstorage进行存储
+
+2、拦截请求，将token放在header头部的Authorization字段中
+
+```js
+// axios拦截器
+// 拦截请求，给所有的请求都带上token
+axios.interceptors.request.use(request => {
+  const tycho_token = window.localStorage.getItem('tycho_token');
+  if (tycho_token) {
+    request.headers['Authorization'] =`Bearer ${tycho_token}`;
+  }
+  return request;
+});
+
+// 拦截响应，遇到token不合法则报错
+axios.interceptors.response.use(
+  response => {
+    if (response.data.token) {
+      console.log('token:', response.data.token);
+      window.localStorage.setItem('tycho_token', response.data.token);
+    }
+    return response;
+  },
+  error => {
+    const errRes = error.response;
+    if (errRes.status === 401) {
+      window.localStorage.removeItem('tycho_token');
+      swal('Auth Error!', `${errRes.data.error.message}, please login!`, 'error')
+      .then(() => {
+        history.push('/login');
+      });
+    }
+    return Promise.reject(error.message);   // 返回接口返回的错误信息
+  });
+```
+
+
+
 # 参考
+
 [《JSON Web Token 入门教程 - 阮一峰》](https://link.juejin.cn/?target=http%3A%2F%2Fwww.ruanyifeng.com%2Fblog%2F2018%2F07%2Fjson_web_token-tutorial.html "http://www.ruanyifeng.com/blog/2018/07/json_web_token-tutorial.html")
 
 [jwt.io](jwt.io)

@@ -17,7 +17,7 @@ HTTP和HTTPS是现阶段最常用的两种协议，用于在Web浏览器和Web�
 
 简单来说，HTTPS就是基于HTTP中加了一把锁（SSL/TLS协议），确保数据传输的安全性，防止数据被恶意篡改或窃取。
 
-![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/372818d1720546299afa11d589eb5017~tplv-k3u1fbpfcp-watermark.image?)
+![image.png](https://oss.gzhutyc.top/images/5534918b1a7c389bf3c67f957a79d88.png)
 
 # 二、HTTPS通信的建立
 
@@ -57,7 +57,7 @@ HTTP和HTTPS是现阶段最常用的两种协议，用于在Web浏览器和Web�
 
  服务器使用对称密钥解密请求数据，并对数据进行处理，最后将处理结果加密后返回给客户端。
  
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f0c131cb259a418ca29c4a18a0724b31~tplv-k3u1fbpfcp-watermark.image?)
+![image.png](https://oss.gzhutyc.top/images/f0a0fd7d43eea5a937b82c8ac99d710.png)
 
 
 # 三、为何选用 SSL/TLS 协议
