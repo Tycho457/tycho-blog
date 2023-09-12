@@ -12,7 +12,7 @@ title: JSON Web Token
 # JWT工作原理
 
 
-![163a569e24bffb93~tplv-t2oaga2asx-zoom-in-crop-mark_3024_0_0_0.webp](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/34dda0e30b01485299ed222eef01a844~tplv-k3u1fbpfcp-watermark.image?)
+![163a569e24bffb93~tplv-t2oaga2asx-zoom-in-crop-mark_3024_0_0_0.webp](https://oss.gzhutyc.top/images/8500a780750492e4a81dbab7111cf66.png)
 1.  浏览器首次登录，post携带用户名和密码请求服务器
 1.  服务器将用户信息生成`jwt`，并返回给客户端
 1.  浏览器拿到`jwt`之后，可以保存到`cookie`或者`localStorage`、`sessionStorage`中

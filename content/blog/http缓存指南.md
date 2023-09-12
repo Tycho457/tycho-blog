@@ -62,4 +62,4 @@ ETag的优先级更高，主要由于以下几个方面
 
 # 三、工作流程
 
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/642102e104684bef9b4acc53589f2ca0~tplv-k3u1fbpfcp-watermark.image?)
+![image.png](https://oss.gzhutyc.top/images/8bd523ca5b0725f7e99d35aebb82861.png)
